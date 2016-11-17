@@ -32,7 +32,7 @@ job2=$(sbatch <script2> 2>&1 | awk '{print $(4)}')
 sbatch -d afterok:${job1}:${job2} <script3> 
 
 # cancel a job
-scancel 
+scandal <job id>
 
 # cancel all jobs for user
 scancel -u <user name>
