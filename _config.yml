@@ -1,0 +1,10 @@
+excerpt_separator: ""
+pygments: true
+markdown: kramdown
+url: http://jorgeboucas.github.io
+title: Jorge Boucas
+email: mail@jorgeboucas.com
+author: Jorge Boucas
+description: Not much to put here..
+paginate: 3
+google_analytics: 
