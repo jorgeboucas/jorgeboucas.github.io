@@ -1,5 +1,5 @@
 ---
-published: false
+published: true
 title: daily Slurm commands
 layout: post
 ---
