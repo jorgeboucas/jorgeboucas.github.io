@@ -4,7 +4,6 @@ title: daily Slurm commands
 layout: post
 ---
 ```bash
-
 # show the partitions 
 sinfo 
 
