@@ -20,7 +20,7 @@ squeue -u <user name>
 scontrol show job <job id>
 
 # start and interactive bash session
-srun --pty bash <script>
+srun --pty bash
 
 # submit a job
 sbatch -p  --cpus-per-task=<n cpus> --mem=<n>gb -t <hours>:<minutes>:<seconds> -o <stdout file> <script>  
