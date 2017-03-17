@@ -10,6 +10,9 @@ sinfo
 # show information on nodes 
 sinfo -N -O partitionname,nodehost,cpus,cpusload,freemem,memory
 
+# check information on a partition
+scontrol show part <partition name>
+
 # show the queue
 squeue 
 
