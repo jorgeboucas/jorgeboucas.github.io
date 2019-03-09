@@ -5,7 +5,7 @@ layout: post
 ---
 
 This tutorial will guide you through the setup of your Raspberry Pi 
-in *headless* mode as a **TimeCapsule** and **AirPlay audio receiver**. 
+in *headless* mode as a **Time Capsule** and **AirPlay audio receiver**. 
 Afterwards we will use *Docker* to setup an [**etherpad server**](https://etherpad.org) with group 
 and user level pad authentication as well as a [**Nextcloud**](https://nextcloud.com) server along with [**WebRTC**](https://webrtc.org) for secure audio/video call conferencing.
 
@@ -32,10 +32,14 @@ to your microsd card.
 
 On your Mac, remove the microcard and insert it back in again. For making 
 sure you will be able to connect over ssh to you raspberry pi you will need to
-```cd /Volumes/boot
-touch ssh```
+```
+cd /Volumes/boot
+touch ssh
+```
 As we will use the raspberry pi without a screen we decrease the amount of memmory available 
 for graphics
-```cd /Volumes/boot
-echo gpu_mem=16 >> config.txt```
+```
+cd /Volumes/boot
+echo gpu_mem=16 >> config.txt
+```
 
