@@ -4,8 +4,7 @@ title: raspberry pi
 layout: post
 ---
 
-# Raspberry Pi as TimeCapsule, Nextcloud server, WebRTC audio/video 
-call conferencing server, and etherpad server.
+## Raspberry Pi as TimeCapsule, Nextcloud server, WebRTC audio/video call conferencing server, and etherpad server.
 
 This tutorial will guide you through the setup of your Raspberry Pi 
 in headless mode as a TimeCapsule and AirPlay audio receiver. 
