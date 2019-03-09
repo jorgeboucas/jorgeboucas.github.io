@@ -37,3 +37,8 @@ On your Mac, remove the microcard and insert it back in again. For making
 sure you will be able to connect over ssh to you raspberry pi you will need to
 ```cd /Volumes/boot
 touch ssh```
+As we will use the raspberry pi without a screen we decrease the amount of memmory available 
+for graphics
+```cd /Volumes/boot
+echo gpu_mem=16 >> config.txt```
+
