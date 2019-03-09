@@ -4,13 +4,10 @@ title: raspberry pi
 layout: post
 ---
 
-## Raspberry Pi as TimeCapsule, Nextcloud server, WebRTC audio/video call conferencing server, and etherpad server.
-
 This tutorial will guide you through the setup of your Raspberry Pi 
-in headless mode as a TimeCapsule and AirPlay audio receiver. 
-Afterwards we will use Docker to setup an etherpad server with group 
-and user level pad authentication as well as a Nextcloud server with 
-WebRTC for secure audio/video call conferencing.
+in *headless* mode as a **TimeCapsule** and **AirPlay audio receiver**. 
+Afterwards we will use *Docker* to setup an [**etherpad server**](https://etherpad.org) with group 
+and user level pad authentication as well as a [**Nextcloud**](https://nextcloud.com) server along with [**WebRTC**](https://webrtc.org) for secure audio/video call conferencing.
 
 ### Materials
 
