@@ -30,7 +30,7 @@ Shortly, after downloading the [zip file](https://downloads.raspberrypi.org/rasp
 use [balenaEtcher](https://www.balena.io/etcher/) to burn the Raspbian image 
 to your micro sd card.
 
-On your Mac, remove the microcard and insert it back in again. For making 
+On your Mac, remove the micro sd card and insert it back in again. For making 
 sure you will be able to connect over ssh to you raspberry pi you will need to
 ```
 cd /Volumes/boot
@@ -159,7 +159,9 @@ systemctl enable netatalk
 service avahi-daemon start
 service netatalk start
 ```
-You Mac should now be seeing `raspberrypi` on your network as a Time Capsule and you should be able to mount it by clicking on it on the *Finder* and select it as a Time Machine destination in *System Preferences* > *Time Machine* > *Add or Remove Backup Disk...*.
+You Mac should now be seeing `raspberrypi` on your network as a Time Capsule and you should be able
+ to mount it by clicking on it on the *Finder* and select it as a Time Machine destination in 
+ *System Preferences* > *Time Machine* > *Add or Remove Backup Disk...*.
 
 ### Installing Docker
 
@@ -189,4 +191,11 @@ This message shows that your installation appears to be working correctly.
 
 ### Building and running the Nextcloud and etherpad Docker image
 
+As we will be generating ssl certificates with a Certificate Authority you will need to make sure
+ your raspberry pi is accessible to the world. For this you will need to make sure your router is 
+**forwarding ports 80 (http) and 443 (https)** to your raspberry pi. For instructions of how to do this consult your router's manual. 
 
+Also, as you might not have a fixed IP you might wanna have as a starter a *Free Dynamic DNS*. A good place for this is [noip.com](https://www.noip.com) for which you can install the *Dynamic Update Client (DUC)* so that your web address continuously points to your router's external IP address.
+
+A good way to test that this is working is to have your router forward port 22 to your raspberry pi 
+and try to ssh to your pi over the *Hostname* you created at noip.com.
