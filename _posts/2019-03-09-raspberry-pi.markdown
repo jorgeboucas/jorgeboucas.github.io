@@ -195,7 +195,7 @@ As we will be generating ssl certificates with a Certificate Authority you will 
  your raspberry pi is accessible to the world. For this you will need to make sure your router is 
 **forwarding ports 80 (http) and 443 (https)** to your raspberry pi. For instructions of how to do this consult your router's manual. 
 
-Also, as you might not have a fixed IP you might wanna have as a starter a *Free Dynamic DNS*. A good place for this is [noip.com](https://www.noip.com) for which you can install the *Dynamic Update Client (DUC)* so that your web address continuously points to your router's external IP address.
+Also, as you might not have a fixed IP you might wanna create a public *Hostname* with a *Free Dynamic DNS*. A good place for this is [noip.com](https://www.noip.com) for which you can install the *Dynamic Update Client (DUC)* so that your web address continuously points to your router's external IP address.
 
-A good way to test that this is working is to have your router forward port 22 to your raspberry pi 
-and try to ssh to your pi over the *Hostname* you created at noip.com.
+To test that this is working you can have your router forward port 22 to your raspberry pi 
+and try to ssh to your pi over the *Hostname* you created at noip.com. For safety reasons you might stop this forwarding once your test comes through.
