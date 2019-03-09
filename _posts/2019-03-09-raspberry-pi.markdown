@@ -6,7 +6,7 @@ layout: post
 
 This tutorial will guide you through the setup of your Raspberry Pi 
 in *headless* mode as a **Time Capsule** and **AirPlay audio receiver**. 
-Afterwards we will use *Docker* to setup an [**etherpad server**](https://etherpad.org) with group 
+Afterwards we will use *Docker* to setup an [**etherpad**](https://etherpad.org) server with group 
 and user level pad authentication as well as a [**Nextcloud**](https://nextcloud.com) server along with [**WebRTC**](https://webrtc.org) for secure audio/video call conferencing.
 
 ### Materials
@@ -28,7 +28,7 @@ on how to burn the image.
 
 Shortly, after downloading the [zip file](https://downloads.raspberrypi.org/raspbian_lite_latest) 
 use [balenaEtcher](https://www.balena.io/etcher/) to burn the Raspbian image 
-to your microsd card.
+to your micro sd card.
 
 On your Mac, remove the microcard and insert it back in again. For making 
 sure you will be able to connect over ssh to you raspberry pi you will need to
@@ -42,4 +42,145 @@ for graphics
 cd /Volumes/boot
 echo gpu_mem=16 >> config.txt
 ```
+Insert the micro sd card into your raspberry pi. Connect the ethernet cable and power cable to start 
+your raspberry pi. From your Mac connect to the pi on your network by
+```
+ssh pi@raspberrypi
+```
+The original password is `raspberry`. 
+
+Setup your user by replacing `MYUSERNAME` with your username and `MYPASSWORD` with your own password:
+```
+sudo -s
+echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && locale-gen
+useradd -m -s /bin/bash -N -u 1001 MYUSERNAME
+echo "root:MYPASSWORD" | chpasswd
+echo "pi:MYPASSWORD" | chpasswd
+echo "MYUSERNAME:MYPASSWORD" | chpasswd
+adduser MYUSERNAME sudo
+exit
+exit
+```
+If you don't yet have SSH keys on your Mac follow the instructions [here](https://confluence.atlassian.com/bitbucketserver/creating-ssh-keys-776639788.html) to generate them. Copy your ssh keys to your pi 
+```
+ssh-copy-id MYUSERNAME@raspberrypi
+```
+Using the password you just used to replace `MYPASSWORD` above. Edit your Mac's `.ssh/config` file 
+```
+vim ~/.ssh/config
+```
+to include
+```
+Host pi
+    HostName raspberrypi
+    Port 22
+    User MYUSERNAME
+```
+You can now connect password free to your pi with:
+```
+ssh pi
+```
+and remove the original `pi` user:
+```
+sudo userdel -r pi
+```
+and add tmux (because we love it):
+```
+sudo apt-get install -y tmux
+```
+Congratulations! Your Raspberry Pi is set and ready to go!
+
+### Setting up your Raspberry Pi as an Airplay audio receiver
+
+```
+ssh pi
+sudo apt-get install -y shairport-sync
+```
+As shown [here](https://www.matthewwegner.com/raspberry-pi-airplay/) you can also increase the quality of the audio coming out of you pi by using a peripherical.
+
+### Setting up you Raspberry Pi as a Time Capsule
+
+Connect an empty HFS+ formated external drive to you pi over USB.
+
+Install required packages for dealing with HFS in linux:
+```
+sudo apt-get install -y hfsprogs hfsplus
+```
+Find your disk and device name (usually `/dev/sda2`):
+```
+sudo fdisk -l
+```
+Format the drive
+```
+sudo mkfs.hfsplus -v my_external_drive /dev/sda2
+```
+Create the mounting point, add it to `/etc/fstab`, mount the device, and make sure you own the mount point:
+```
+su
+mkdir -p /media/time_machine
+echo "/dev/sda2 /media/time_machine hfsplus force,rw,user,auto 0 0" >> /etc/fstab
+mount -a
+chown -R MYUSERNAME /media/time_machine
+```
+Install the required packages for mounting you pi over afp and emulate a Time Capsule
+```
+su
+aptitude install -y build-essential libevent-dev libssl-dev libgcrypt11-dev libkrb5-dev libpam0g-dev libwrap0-dev libdb-dev libtdb-dev avahi-daemon libavahi-client-dev libacl1-dev libldap2-dev libcrack2-dev systemtap-sdt-dev libdbus-1-dev libdbus-glib-1-dev libglib2.0-dev libio-socket-inet6-perl tracker libtracker-sparql-1.0-dev libtracker-miner-1.0-dev libmariadbclient-dev
+
+wget http://prdownloads.sourceforge.net/netatalk/netatalk-3.1.11.tar.gz
+tar -xf netatalk-3.1.11.tar.gz
+cd netatalk-3.1.11/
+./configure \
+        --with-init-style=debian-systemd \
+        --without-libevent \
+        --without-tdb \
+        --with-cracklib \
+        --enable-krbV-uam \
+        --with-pam-confdir=/etc/pam.d \
+        --with-dbus-daemon=/usr/bin/dbus-daemon \
+        --with-dbus-sysconf-dir=/etc/dbus-1/system.d \
+        --with-tracker-pkgconfig-version=1.0
+make 
+make install
+netatalk -V
+echo """[Global]
+  mimic model = TimeCapsule6,106
+[Time Machine]
+  path = /media/time_machine
+  time machine = yes""" > /usr/local/etc/afp.conf
+systemctl enable avahi-daemon
+systemctl enable netatalk
+service avahi-daemon start
+service netatalk start
+```
+You Mac should now be seeing `raspberrypi` on your network as a Time Capsule and you should be able to mount it by clicking on it on the *Finder* and select it as a Time Machine destination in *System Preferences* > *Time Machine* > *Add or Remove Backup Disk...*.
+
+### Installing Docker
+
+Docker is great!
+```
+sudo apt-get update
+curl -sSL https://get.docker.com | sh
+sudo usermod -aG docker $USER
+sudo gpasswd -a $USER docker
+docker --version
+sudo reboot
+```
+Login to your pi again once it has rebooted ```ssh pi``` 
+```
+docker login
+sudo docker engine activate
+```
+and test your docker installation:
+```
+docker run armhf/hello-world
+```
+Here the message you should see
+```
+Hello from Docker on armhf!
+This message shows that your installation appears to be working correctly.
+```
+
+### Building and running the Nextcloud and etherpad Docker image
+
 
