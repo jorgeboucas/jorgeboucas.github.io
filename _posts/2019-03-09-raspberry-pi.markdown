@@ -125,7 +125,13 @@ chown -R MYUSERNAME /media/time_machine
 Install the required packages for mounting you pi over afp and emulate a Time Capsule
 ```
 su
-aptitude install -y build-essential libevent-dev libssl-dev libgcrypt11-dev libkrb5-dev libpam0g-dev libwrap0-dev libdb-dev libtdb-dev avahi-daemon libavahi-client-dev libacl1-dev libldap2-dev libcrack2-dev systemtap-sdt-dev libdbus-1-dev libdbus-glib-1-dev libglib2.0-dev libio-socket-inet6-perl tracker libtracker-sparql-1.0-dev libtracker-miner-1.0-dev libmariadbclient-dev
+aptitude install -y build-essential libevent-dev libssl-dev \
+libgcrypt11-dev libkrb5-dev libpam0g-dev libwrap0-dev \
+libdb-dev libtdb-dev avahi-daemon libavahi-client-dev \
+libacl1-dev libldap2-dev libcrack2-dev systemtap-sdt-dev \
+libdbus-1-dev libdbus-glib-1-dev libglib2.0-dev \
+libio-socket-inet6-perl tracker libtracker-sparql-1.0-dev \
+libtracker-miner-1.0-dev libmariadbclient-dev
 
 wget http://prdownloads.sourceforge.net/netatalk/netatalk-3.1.11.tar.gz
 tar -xf netatalk-3.1.11.tar.gz
@@ -157,7 +163,7 @@ You Mac should now be seeing `raspberrypi` on your network as a Time Capsule and
 
 ### Installing Docker
 
-Docker is great!
+Docker is great! 
 ```
 sudo apt-get update
 curl -sSL https://get.docker.com | sh
