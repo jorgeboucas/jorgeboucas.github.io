@@ -163,7 +163,7 @@ You Mac should now be seeing `raspberrypi` on your network as a Time Capsule and
 
 ### Installing Docker
 
-Docker is great! 
+[Docker](https://www.docker.com) is great! 
 ```
 sudo apt-get update
 curl -sSL https://get.docker.com | sh
