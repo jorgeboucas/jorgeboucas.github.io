@@ -118,7 +118,7 @@ Set your raspberry pi sound higher as the standard 50% is quite low:
 sudo amixer set 'PCM' 75%
 ```
 
-## Setting up you Raspberry Pi as a Time Capsule
+## Setting up your Raspberry Pi as a Time Capsule
 
 Connect an empty HFS+ formated external drive to you pi over USB.
 
