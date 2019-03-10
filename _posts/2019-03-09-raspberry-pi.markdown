@@ -225,6 +225,7 @@ wget http://www.no-ip.com/client/linux/noip-duc-linux.tar.gz&redir_token=8N73LFV
 tar xzf noip-duc-linux.tar.gz
 cd noip-2.1.9-1/ && make && make install
 /usr/local/bin/noip2
+exit
 ```
 To test that this is working you can have your router forward port 22 to your raspberry pi 
 and try to ssh to your pi over the *Hostname* you created at noip.com. For safety reasons you might stop this forwarding once your test comes through.
