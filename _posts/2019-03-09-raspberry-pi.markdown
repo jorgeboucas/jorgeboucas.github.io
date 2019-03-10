@@ -311,4 +311,6 @@ For *WebRTC* you can use the *Talk* app inside Nextcloud.
 For login to etherpad you can use the values you've set to `ETHERPAD_ADMIN` and `ETHERPAD_ADMIN_PASS`. For private pads you can access `etherpad.myhostname.com/mypads` which you 
 can administrate on `etherpad.myhostname.com/mypads/?/admin`.
 
+<p style="text-align: center;">**[Issues/comments welcome!](https://github.com/jorgeboucas/jorgeboucas.github.io/issues)**</p>
+
 
