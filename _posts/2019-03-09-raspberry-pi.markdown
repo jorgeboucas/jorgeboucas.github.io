@@ -99,9 +99,9 @@ and remove the original `pi` user:
 ```
 sudo userdel -r pi
 ```
-and add vim and tmux (because we love it):
+and add git, vim and tmux (because we love it):
 ```
-sudo apt-get install -y tmux vim
+sudo apt-get install -y tmux vim git
 ```
 Congratulations! Your Raspberry Pi is set and ready to go!
 

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>raspberry pi &#8211; Jorge Boucas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Not much to put here..">
+    <meta name="author" content="Jorge Boucas">
+    <meta name="keywords" content="">
+    <link rel="canonical" href="http://localhost:4000/2019/03/09/raspberry-pi.html">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/basscss.css" type="text/css">
+    <link rel="stylesheet" href="/css/pixyll.css" type="text/css">
+    <link rel="stylesheet" href="/css/solarized-dark.css" type="text/css">
+
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Merriweather:900,900italic,300,300italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Lato:900,300' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+  <div class="site-wrap">
+    <header class="site-header px2 px-responsive">
+      <div class="mt2 wrap">
+        <div class="measure">
+          <a href="http://localhost:4000" class="left">Jorge Boucas</a>
+          <nav class="site-nav right">
+            <a href="/contact/">Contact</a>
+
+          </nav>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="post p2 p-responsive wrap" role="main">
+      <div class="measure">
+        <div class="post-header mb2">
+  <h1 class="py2">raspberry pi</h1>
+  <span class="post-meta">Mar 9, 2019</span>
+</div>
+
+<article class="post-content">
+  <h1 id="raspberry-pi-as-timecapsule-nextcloud-server-webrtc-audiovideo">Raspberry Pi as TimeCapsule, Nextcloud server, WebRTC audio/video</h1>
+<p>call conferencing server, and etherpad server.</p>
+
+<p>This tutorial will guide you through the setup of your Raspberry Pi 
+in headless mode as a TimeCapsule and AirPlay audio receiver. 
+Afterwards we will use Docker to setup an etherpad server with group 
+and user level pad authentication as well as a Nextcloud server with 
+WebRTC for secure audio/video call conferencing.</p>
+
+<h3 id="materials">Materials</h3>
+
+<ul>
+  <li><a href="https://www.amazon.de/Raspberry-1373331-Pi-Modell-Mainboard/dp/B07BDR5PDW/ref=sr_1_5?s=computers&amp;ie=UTF8&amp;qid=1552132158&amp;sr=1-5&amp;keywords=raspberry+pi+3+b%2B">Raspberry 1373331 Pi 3 Modell B+ Mainboard, 1 GB</a> (34.49 EUR)</li>
+  <li><a href="https://www.amazon.de/dp/B01N5ME6EW/ref=twister_B07BTCSCQ1?_encoding=UTF8&amp;psc=1">Raspberry Pi 3 official power supply</a> (14.90 EUR)</li>
+  <li><a href="https://www.amazon.de/SanDisk-Ultra-microSDHC-Speicherkarte-Adapter/dp/B073SB2L3C/ref=pd_bxgy_147_2/261-7932163-3214767?_encoding=UTF8&amp;pd_rd_i=B073S9SFK2&amp;pd_rd_r=6f8be1de-4261-11e9-aaff-27d05f5ca95c&amp;pd_rd_w=H5Hrn&amp;pd_rd_wg=Ce586&amp;pf_rd_p=1ee75a10-e7c2-423a-9362-8396fcd2b687&amp;pf_rd_r=NVJK17P8Y5H4KXWP0WHV&amp;refRID=NVJK17P8Y5H4KXWP0WHV&amp;th=1">SanDisk Ultra 64GB microSDXC card</a> (15.00 EUR)</li>
+  <li><a href="https://www.amazon.de/Western-Digital-Elements-Festplatte-WDBWLG0040HBK-EESN/dp/B00JT8AJZ0/ref=sr_1_3?s=computers&amp;ie=UTF8&amp;qid=1552132818&amp;sr=1-3&amp;keywords=wd+externe+festplatte+4tb">Western Digital 4TB external hard drive</a> (94.99 EUR)</li>
+  <li>Optional: <a href="https://www.amazon.de/offizielles-Gehäuse-Raspberry-Himbeer-weiß/dp/B01CCPKCSK/ref=pd_bxgy_147_3/261-7932163-3214767?_encoding=UTF8&amp;pd_rd_i=B01CCPKCSK&amp;pd_rd_r=6f8be1de-4261-11e9-aaff-27d05f5ca95c&amp;pd_rd_w=H5Hrn&amp;pd_rd_wg=Ce586&amp;pf_rd_p=1ee75a10-e7c2-423a-9362-8396fcd2b687&amp;pf_rd_r=NVJK17P8Y5H4KXWP0WHV&amp;psc=1&amp;refRID=NVJK17P8Y5H4KXWP0WHV">Raspberry Pi 3 official case</a> (7.99 EUR)</li>
+</ul>
+
+<p>Total: 167.37 EUR</p>
+
+<h3 id="starting-your-raspberry-pi-for-the-firsttime">Starting your Raspberry Pi for the first time</h3>
+
+<p>Download the <em>“Raspbian Stretch Lite”</em> image from the Raspbian downloads 
+page <a href="https://www.raspberrypi.org/downloads/raspbian/">here</a> and follow 
+raspberrypi.org <a href="https://www.raspberrypi.org/documentation/installation/installing-images/README.md">instructions</a> 
+on how to burn the image.</p>
+
+<p>Shortly, after downloading the <a href="https://downloads.raspberrypi.org/raspbian_lite_latest">zip file</a> 
+use <a href="https://www.balena.io/etcher/">balenaEtcher</a> to burn the Raspbian image 
+to your microsd card.</p>
+
+<p>On your Mac, remove the microcard and insert it back in again. For making 
+sure you will be able to connect over ssh to you raspberry pi you will need to
+<code>cd /Volumes/boot
+touch ssh</code></p>
+
+</article>
+
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+  <div class="p2 wrap">
+    <div class="measure mt1 center">
+      <small>
+        <b><a href="https://github.com/jorgeboucas">Github</a> | <a href="https://de.linkedin.com/in/jboucas">LinkedIn</a> | <a href="https://twitter.com/jorgeboucas">Twitter</a></b>
+        <br>
+        <br>        
+        Theme crafted with love &lt;3 by <a href="http://johnotander.com">John Otander</a> (<a href="https://twitter.com/4lpine">@4lpine</a>). Site powered by <a href="https://tinypress.co/">Tinypress</a>.<br>
+        &lt;/&gt; available on <a href="https://github.com/johnotander/pixyll.git">Github</a>.
+      </small>
+    </div>
+  </div>
+</footer>
+
+
+
+</body>
+</html>
