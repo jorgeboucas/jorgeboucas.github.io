@@ -113,7 +113,7 @@ sudo apt-get install -y shairport-sync
 ```
 Since the analog output is in mono only you might want to increase the quality of the audio coming out of you pi by using HDMI or a peripherical as shown [here](https://www.matthewwegner.com/raspberry-pi-airplay/).
 
-You might also wanna set your raspberry pi higher as it the standard 50% is quite low:
+Set your raspberry pi sound higher as the standard 50% is quite low:
 ```
 sudo amixer set 'PCM' 75%
 ```
