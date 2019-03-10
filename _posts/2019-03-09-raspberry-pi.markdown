@@ -42,6 +42,21 @@ for graphics
 cd /Volumes/boot
 echo gpu_mem=16 >> config.txt
 ```
+If you wish to connect to your raspberry pi you need to set this up now by editing the `/boot/wpa_supplicant.conf` file with your wifi and country 2 letter code (here DE for Germany):
+```
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=DE
+
+network={
+	ssid="my_network_name"
+	psk="my_network_password"
+}
+```
+If you do not want store your password in plain text you can use `wpa_passphrase` utility to generate an hashed password:
+```
+wpa_passphrase my_network_name my_network_password
+```
 Insert the micro sd card into your raspberry pi. Connect the ethernet cable and power cable to start 
 your raspberry pi. From your Mac connect to the pi on your network by
 ```
@@ -84,9 +99,9 @@ and remove the original `pi` user:
 ```
 sudo userdel -r pi
 ```
-and add tmux (because we love it):
+and add vim and tmux (because we love it):
 ```
-sudo apt-get install -y tmux
+sudo apt-get install -y tmux vim
 ```
 Congratulations! Your Raspberry Pi is set and ready to go!
 
@@ -97,6 +112,11 @@ ssh pi
 sudo apt-get install -y shairport-sync
 ```
 As shown [here](https://www.matthewwegner.com/raspberry-pi-airplay/) you can also increase the quality of the audio coming out of you pi by using a peripherical.
+
+You might also wanna set your raspberry pi higher as it the standard 50% is quite low:
+```
+sudo amixer set 'PCM' 75%
+```
 
 ## Setting up you Raspberry Pi as a Time Capsule
 
