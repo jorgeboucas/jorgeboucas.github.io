@@ -217,6 +217,15 @@ As we will be generating ssl certificates with a Certificate Authority you will 
 
 Also, as you might not have a fixed IP you might wanna create a public *Hostname* with a *Free Dynamic DNS*. A good place for this is [noip.com](https://www.noip.com) for which you can install the *Dynamic Update Client (DUC)* so that your web address continuously points to your router's external IP address. You will need 2 hostnames, 1 for Nextcloud, 1 for etherpad.
 
+Installing the *Dynamic Update Client (DUC)*
+```
+su
+cd /usr/local/src
+wget http://www.no-ip.com/client/linux/noip-duc-linux.tar.gz&redir_token=8N73LFVgQSnqLuVOQf0FMQHM58F8MTU1MjMzNDQ2MkAxNTUyMjQ4MDYy
+tar xzf noip-duc-linux.tar.gz
+cd noip-2.1.9-1/ && make && make install
+/usr/local/bin/noip2
+```
 To test that this is working you can have your router forward port 22 to your raspberry pi 
 and try to ssh to your pi over the *Hostname* you created at noip.com. For safety reasons you might stop this forwarding once your test comes through.
 
