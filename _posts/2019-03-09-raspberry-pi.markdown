@@ -142,6 +142,14 @@ echo "/dev/sda2 /media/time_machine hfsplus force,rw,user,auto 0 0" >> /etc/fsta
 mount -a
 chown -R MYUSERNAME /media/time_machine
 ```
+Now that you've mounted your external drive make sure to never pull the power cable or USB on your raspberry pi as this might render the external drive read-only. For unmounting the drive you can 
+```
+sudo umount /dev/sda2
+```
+and for shutting down your raspberry pi you can 
+```
+sudo shutdown -h now 
+```
 Install the required packages for mounting your pi over afp and emulate a Time Capsule
 ```
 su
