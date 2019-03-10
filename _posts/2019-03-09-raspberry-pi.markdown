@@ -9,7 +9,7 @@ in *headless* mode as a **Time Capsule** and **AirPlay audio receiver**.
 Afterwards we will use *Docker* to setup an [**etherpad**](https://etherpad.org) server with group 
 and user level pad authentication as well as a [**Nextcloud**](https://nextcloud.com) server along with [**WebRTC**](https://webrtc.org) for secure audio/video call conferencing.
 
-### Materials
+## Materials
 
 - [Raspberry 1373331 Pi 3 Modell B+ Mainboard, 1 GB](https://www.amazon.de/Raspberry-1373331-Pi-Modell-Mainboard/dp/B07BDR5PDW/ref=sr_1_5?s=computers&ie=UTF8&qid=1552132158&sr=1-5&keywords=raspberry+pi+3+b%2B) (34.49 EUR)
 - [Raspberry Pi 3 official power supply](https://www.amazon.de/dp/B01N5ME6EW/ref=twister_B07BTCSCQ1?_encoding=UTF8&psc=1) (14.90 EUR)
@@ -19,7 +19,7 @@ and user level pad authentication as well as a [**Nextcloud**](https://nextcloud
 
 Total: 167.37 EUR
 
-### Starting your Raspberry Pi for the first time
+## Starting your Raspberry Pi for the first time
 
 Download the *"Raspbian Stretch Lite"* image from the Raspbian downloads 
 page [here](https://www.raspberrypi.org/downloads/raspbian/) and follow 
@@ -90,7 +90,7 @@ sudo apt-get install -y tmux
 ```
 Congratulations! Your Raspberry Pi is set and ready to go!
 
-### Setting up your Raspberry Pi as an Airplay audio receiver
+## Setting up your Raspberry Pi as an Airplay audio receiver
 
 ```
 ssh pi
@@ -98,7 +98,7 @@ sudo apt-get install -y shairport-sync
 ```
 As shown [here](https://www.matthewwegner.com/raspberry-pi-airplay/) you can also increase the quality of the audio coming out of you pi by using a peripherical.
 
-### Setting up you Raspberry Pi as a Time Capsule
+## Setting up you Raspberry Pi as a Time Capsule
 
 Connect an empty HFS+ formated external drive to you pi over USB.
 
@@ -163,7 +163,7 @@ You Mac should now be seeing `raspberrypi` on your network as a Time Capsule and
  to mount it by clicking on it on the *Finder* and select it as a Time Machine destination in 
  *System Preferences* > *Time Machine* > *Add or Remove Backup Disk...*.
 
-### Installing Docker
+## Installing Docker
 
 [Docker](https://www.docker.com) is great! 
 ```
@@ -189,7 +189,7 @@ Hello from Docker on armhf!
 This message shows that your installation appears to be working correctly.
 ```
 
-### Building and running the Nextcloud and etherpad Docker image
+## Building and running the Nextcloud and etherpad Docker image
 
 As we will be generating ssl certificates with a Certificate Authority you will need to make sure
  your raspberry pi is accessible to the world. For this you will need to make sure your router is 
