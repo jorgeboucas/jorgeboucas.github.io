@@ -36,7 +36,7 @@ sure you will be able to connect over ssh to your raspberry pi you will need to
 cd /Volumes/boot
 touch ssh
 ```
-As we will use the raspberry pi without a screen we decrease the amount of memmory available 
+As we will use the raspberry pi without a screen we decrease the amount of memory available 
 for graphics
 ```
 cd /Volumes/boot
