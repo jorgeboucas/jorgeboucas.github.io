@@ -111,7 +111,7 @@ Congratulations! Your Raspberry Pi is set and ready to go!
 ssh pi
 sudo apt-get install -y shairport-sync
 ```
-Since the analog output is in mono only you might want to increase the quality of the audio coming out of you pi by using HDMI or a peripherical as shown [here](https://www.matthewwegner.com/raspberry-pi-airplay/).
+Since the analog output is in mono only you might want to increase the quality of the audio coming out of your pi by using HDMI or a peripherical as shown [here](https://www.matthewwegner.com/raspberry-pi-airplay/).
 
 Set your raspberry pi sound higher as the standard 50% is quite low:
 ```
@@ -150,6 +150,8 @@ and for shutting down your raspberry pi you can
 ```
 sudo shutdown -h now 
 ```
+This is also where investing a bit more on an external desktop hard drive might be more functional (eg.: [Western Digital 10 TB Elements, USB 3.0](https://www.amazon.de/Western-Digital-WDBWLG0100HBK-EESN-einsatzbereite-Desktop-Festplatte/dp/B07G364YHX/ref=cm_cr_arp_d_product_top?ie=UTF8), 224.99 EUR).
+
 Install the required packages for mounting your pi over afp and emulate a Time Capsule
 ```
 su
