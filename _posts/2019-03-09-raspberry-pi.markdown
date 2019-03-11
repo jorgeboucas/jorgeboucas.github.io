@@ -31,7 +31,7 @@ use [balenaEtcher](https://www.balena.io/etcher/) to burn the Raspbian image
 to your micro sd card.
 
 On your Mac, remove the micro sd card and insert it back in again. For making 
-sure you will be able to connect over ssh to you raspberry pi you will need to
+sure you will be able to connect over ssh to your raspberry pi you will need to
 ```
 cd /Volumes/boot
 touch ssh
@@ -42,7 +42,7 @@ for graphics
 cd /Volumes/boot
 echo gpu_mem=16 >> config.txt
 ```
-If you wish to connect to your raspberry pi you need to set this up now by editing the `/boot/wpa_supplicant.conf` file with your wifi and country 2 letter code (here DE for Germany):
+If you wish to connect to your raspberry pi over wifi you need to set this up now by editing the `/boot/wpa_supplicant.conf` file with your wifi and country 2 letter code (here DE for Germany):
 ```
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
