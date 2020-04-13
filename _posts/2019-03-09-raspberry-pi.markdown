@@ -293,7 +293,7 @@ ENV ETHERPAD_WEB_ADDRESS=etherpad.myhostname.com
 Build the image and run the container:
 ```
 cd ~/docker_nextcloud_etherpad
-docker built -t webserver .
+docker build -t webserver .
 ```
 Run the container mapping the certificates `/etc/letsencrypt`, nextcloud `/var/www/html`, 
 databases `var/lib/mysql`, and etherpad `/etherpad-lite` folders to your external hard drive. If you wish to create backups of your Nextcloud and etherpad instances these are the folders you need to copy/backup to a separate/3rd drive. If you ever restart your raspberry pi you can relaunch your instances by starting here:
