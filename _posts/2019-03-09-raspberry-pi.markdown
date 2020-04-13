@@ -155,6 +155,8 @@ This is also where investing a bit more on an external desktop hard drive might 
 Install the required packages for mounting your pi over afp and emulate a Time Capsule
 ```
 su
+apt-get update
+apt-get install aptitude
 aptitude install -y build-essential libevent-dev libssl-dev \
 libgcrypt11-dev libkrb5-dev libpam0g-dev libwrap0-dev \
 libdb-dev libtdb-dev avahi-daemon libavahi-client-dev \
