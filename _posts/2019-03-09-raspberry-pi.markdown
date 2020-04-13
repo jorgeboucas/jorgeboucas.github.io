@@ -158,12 +158,12 @@ su
 apt-get update
 apt-get install aptitude
 aptitude install -y build-essential libevent-dev libssl-dev \
-libgcrypt11-dev libkrb5-dev libpam0g-dev libwrap0-dev \
+libgcrypt20-dev libkrb5-dev libpam0g-dev libwrap0-dev \
 libdb-dev libtdb-dev avahi-daemon libavahi-client-dev \
 libacl1-dev libldap2-dev libcrack2-dev systemtap-sdt-dev \
 libdbus-1-dev libdbus-glib-1-dev libglib2.0-dev \
-libio-socket-inet6-perl tracker libtracker-sparql-1.0-dev \
-libtracker-miner-1.0-dev libmariadbclient-dev
+libio-socket-inet6-perl tracker libtracker-sparql-2.0-dev \
+libtracker-miner-2.0-dev libmariadbclient-dev
 
 wget http://prdownloads.sourceforge.net/netatalk/netatalk-3.1.11.tar.gz
 tar -xf netatalk-3.1.11.tar.gz
