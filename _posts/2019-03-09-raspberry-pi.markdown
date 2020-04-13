@@ -26,7 +26,7 @@ page [here](https://www.raspberrypi.org/downloads/raspbian/) and follow
 raspberrypi.org [instructions](https://www.raspberrypi.org/documentation/installation/installing-images/README.md) 
 on how to burn the image.
 
-Shortly, after downloading the [zip file](https://downloads.raspberrypi.org/raspbian_lite_latest) 
+Shortly, after downloading the zip file([newest](https://downloads.raspberrypi.org/raspbian_lite_latest)/[this tutorial](https://downloads.raspberrypi.org/raspbian/images/raspbian-2020-02-14/2020-02-13-raspbian-buster.zip)) 
 use [balenaEtcher](https://www.balena.io/etcher/) to burn the Raspbian image 
 to your micro sd card.
 
