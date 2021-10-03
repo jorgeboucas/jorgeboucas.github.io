@@ -230,6 +230,8 @@ sudo apt install -y python3-pip libffi-dev
 sudo pip3 install docker-compose
 ```
 
+To run you registry on your home network in an insecure fashion add `{"insecure-registries":["raspberrypi:5000"]}` to your Docker daemon configuration file and restart docker.
+
 ## Building and running the Nextcloud and etherpad Docker image
 
 As we will be generating ssl certificates with a Certificate Authority you will need to make sure
