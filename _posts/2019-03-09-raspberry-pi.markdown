@@ -221,6 +221,15 @@ Hello from Docker on armhf!
 This message shows that your installation appears to be working correctly.
 ```
 
+### Install Docker Compose from pip (using Python3)
+
+This might take a while
+```
+sudo apt update
+sudo apt install -y python3-pip libffi-dev
+sudo pip3 install docker-compose
+```
+
 ## Building and running the Nextcloud and etherpad Docker image
 
 As we will be generating ssl certificates with a Certificate Authority you will need to make sure
