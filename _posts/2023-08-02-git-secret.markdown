@@ -38,6 +38,7 @@ brew install git-secret
 cd ~/
 git clone https://github.com/sobolevn/git-secret.git
 cd git-secret
+make
 chmod +x git-secret
 echo "export PATH=$(pwd):\${PATH}" >> ~/.bash_profile 
 ```
